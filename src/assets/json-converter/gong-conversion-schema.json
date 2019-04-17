@@ -1,0 +1,31 @@
+[
+  {
+    "className": "Movie",
+    "propertyConversionArray": [
+      {
+        "propertyName": "id",
+        "propertyNameInJson": "imdbID"
+      },
+      {
+        "propertyName": "title",
+        "propertyNameInJson": "Title"
+      },
+      {
+        "propertyName": "year",
+        "propertyNameInJson": "Year"
+      },
+      {
+        "propertyName": "runtime",
+        "propertyNameInJson": "Runtime"
+      },
+      {
+        "propertyName": "genre",
+        "propertyNameInJson": "Genre"
+      },
+      {
+        "propertyName": "director",
+        "propertyNameInJson": "Director"
+      }
+    ]
+  }
+]

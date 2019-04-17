@@ -1,0 +1,60 @@
+<div class="modal-header bg-primary text-white">
+  <h4 class="modal-title" id="modal-title">Edit movie record</h4>
+  <button type="button" class="close text-white" aria-describedby="modal-title" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="editMovieForm">
+
+    <div class="form-group">
+      <label for="formGroupTitle">Title</label>
+      <input type="text" class="form-control" formControlName="title" id="formGroupTitle">
+    </div>
+
+    <div class="form-group">
+      <label for="formGroupDirector">Director</label>
+      <input type="text" class="form-control" formControlName="director" id="formGroupDirector">
+    </div>
+
+    <div class="form-group">
+      <label for="formGroupYear">Released in</label>
+      <input type="number" min="1888" max="maxYear" formControlName="year" class="form-control" id="formGroupYear">
+    </div>
+
+    <div class="form-group">
+      <label for="formLength">Runtime</label>
+      <input type="text" formControlName="runtime" class="form-control" id="formLength">
+    </div>
+
+    <div class="form-group">
+      <label for="formRuntime">genre</label>
+      <input type="text" formControlName="genre" class="form-control" id="formRuntime" [ngModel]="movie.genre">
+    </div>
+
+    <div class="valdationPlaceholder">
+      <div *ngIf="editMovieForm.invalid && (editMovieForm.dirty || editMovieForm.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="(title.errors && title.errors.required ) || (director.errors && director.errors.required) ||
+          (year.errors && year.errors.required) || (runtime.errors && runtime.errors.required) ||
+          (genre.errors && genre.errors.required)">
+          Value is required !!!
+        </div>
+        <div *ngIf="title.errors && title.errors.titleTaken ">
+          Title already exists !!!
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="closeModal()">Cancel</button>
+  <button type="button" ngbAutofocus [disabled]="!editMovieForm.valid" class="btn btn-danger" (click)="submitData()">
+    Save
+  </button>
+</div>
+

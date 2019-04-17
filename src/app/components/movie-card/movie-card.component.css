@@ -1,0 +1,8 @@
+.movieCard{
+  margin: 2vh 2vw;
+  width: 35vw;
+}
+
+.card-title ,.card-subtitle {
+  text-align: center;
+}

@@ -1,0 +1,33 @@
+input.ng-invalid {
+  border-right: 7px solid red
+}
+
+.modal-header {
+  padding: .1rem 1rem;
+}
+
+.modal-footer {
+  padding: .5rem 1rem;
+}
+
+.modal-body {
+  padding: 0.5rem 1rem ;
+}
+
+.form-group {
+  margin-bottom: 0.1rem;
+}
+
+.form-control {
+  height: unset;
+  padding: 0.025rem 0.75rem;
+}
+
+label {
+  margin-bottom: 1px;
+}
+
+.valdationPlaceholder {
+  height: 8vh;
+  margin-top: 3vh;
+}

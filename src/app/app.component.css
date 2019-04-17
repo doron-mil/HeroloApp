@@ -1,0 +1,8 @@
+.navbarMovies {
+  height: 10vh;
+}
+
+.mainDisplay {
+  height: 90vh;
+  overflow-y: scroll;
+}
