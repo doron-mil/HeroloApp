@@ -20,7 +20,7 @@ import {MovieCardComponent} from './components/movie-card/movie-card.component';
 import {MovieRecordEditorComponent} from './components/movie-record-editor/movie-record-editor.component';
 import {TitleValidationDirective} from './shared/title-validation.directive';
 import {DeleteValidationComponent} from './components/delete-validation/delete-validation.component';
-import { RemoveNonEnglishPipe } from './shared/remove-non-english.pipe';
+import {RemoveNonEnglishPipe} from './shared/remove-non-english.pipe';
 
 @NgModule({
   declarations: [

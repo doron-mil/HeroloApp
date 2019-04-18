@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Movie} from '../../model/Movie';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MovieRecordEditorComponent} from '../movie-record-editor/movie-record-editor.component';
-import {MovieService} from '../../services/movie.service';
 import {DeleteValidationComponent} from '../delete-validation/delete-validation.component';
 
 @Component({

@@ -3,8 +3,8 @@ import {Movie} from '../model/Movie';
 import {NgRedux} from '@angular-redux/store';
 import {addMovieIntoStore, commitEditedMovie, deleteMovie} from '../store/actions/action';
 import {HttpClient} from '@angular/common/http';
-import {delay, map} from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,6 @@ export class MovieService {
   checkTitleNotTaken(aTitle: string, aMovieId: string): Observable<boolean> {
     return this.http
       .get(`http://www.omdbapi.com/?t=${aTitle}&apikey=ba6476f3`).pipe(
-        // map(res => res.json()),
         map((movie: { Title: string, imdbID: string }) =>
           !(movie.Title === aTitle && movie.imdbID !== aMovieId))
       );

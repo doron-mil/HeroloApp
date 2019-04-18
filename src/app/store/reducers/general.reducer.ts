@@ -24,7 +24,7 @@ export function generalReducer(state: MainState = INITIAL_GENERAL_STATE, action:
         state.moviesList.splice(foundIndex, 1);
         state.moviesList = [...state.moviesList];
       }
-      return state;
+      return Object.assign({}, state);
     default:
       return Object.assign({}, state);
   }

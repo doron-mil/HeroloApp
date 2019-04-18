@@ -1,5 +1,5 @@
 import {Directive} from '@angular/core';
-import {AbstractControl, AsyncValidator, AsyncValidatorFn, ValidationErrors} from '@angular/forms';
+import {AbstractControl, AsyncValidatorFn} from '@angular/forms';
 import {Observable, of} from 'rxjs';
 import {MovieService} from '../services/movie.service';
 import {map} from 'rxjs/operators';
@@ -17,7 +17,7 @@ export class TitleValidationDirective {
       if (!control.dirty && !control.touched) {
         return of(null);
       }
-      return this.movieService.checkTitleNotTaken(control.value,aMovieId).pipe(
+      return this.movieService.checkTitleNotTaken(control.value, aMovieId).pipe(
         map(res => {
           return res ? null : {titleTaken: true};
         }));

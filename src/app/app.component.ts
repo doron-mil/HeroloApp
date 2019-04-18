@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {MovieService} from './services/movie.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MovieRecordEditorComponent} from './components/movie-record-editor/movie-record-editor.component';
 import {Movie} from './model/Movie';

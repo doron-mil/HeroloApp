@@ -1,14 +1,12 @@
 import {Injectable} from '@angular/core';
 import {API_ERROR, API_SUCCESS, apiRequest} from '../../actions/api.actions';
 import {JsonConverterService} from '../../../utils/json-converter/json-converter.service';
-import {MOVIES_LIST_GET_DATA, MOVIES_LIST_FEATURE, addMovieIntoStore} from '../../actions/action';
+import {addMovieIntoStore, MOVIES_LIST_FEATURE, MOVIES_LIST_GET_DATA} from '../../actions/action';
 import {Movie} from '../../../model/Movie';
 
-// const imdbMoviesIds = ['tt0111161', 'tt0167260', 'tt0110912', 'tt0108052', 'tt0137523', 'tt0073486', 'tt0816692', 'tt0120815',
-//   'tt0120689', 'tt0114369', 'tt0102926', 'tt1675434', 'tt0482571', 'tt0253474', 'tt0172495', 'tt0120586', 'tt0110357', 'tt0095765',
-//   'tt0078788', 'tt0032553', 'tt1853728', 'tt0405094'];
-const imdbMoviesIds = ['tt0111161'];
-// const imdbMoviesIds = ['tt0111161', 'tt0167260', 'tt0110912'];
+const imdbMoviesIds = ['tt0111161', 'tt0167260', 'tt0110912', 'tt0108052', 'tt0137523', 'tt0073486', 'tt0816692', 'tt0120815',
+  'tt0120689', 'tt0114369', 'tt0102926', 'tt1675434', 'tt0482571', 'tt0253474', 'tt0172495', 'tt0120586', 'tt0110357', 'tt0095765',
+  'tt0078788', 'tt0032553', 'tt1853728', 'tt0405094'];
 
 const omdbApiKey = 'ba6476f3';
 const keyQuery = `&apikey=${omdbApiKey}`;
@@ -39,18 +37,6 @@ export class GeneralMiddlewareService {
         next(
           addMovieIntoStore(movie)
         );
-        const addedMovie = new Movie();
-        addedMovie.id = '3333';
-        addedMovie.title = '@@THIS is a MoviE!!';
-
-        next(
-          addMovieIntoStore(addedMovie)
-        );
-        // Array.from(Array(30)).forEach(() => {
-        //   next(
-        //     addMovieIntoStore(movie)
-        //   );
-        // });
         break;
     }
 

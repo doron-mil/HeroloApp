@@ -1,7 +1,8 @@
 .movieCard {
   box-shadow: 0rem .5rem 1rem rgba(0, 0, 0, .3);
   margin: 2vh 2vw;
-  width: 35vw;
+  width: 250px;
+  height: 300px;
 }
 
 .card-title, .card-subtitle {
@@ -14,8 +15,18 @@
   padding: unset;
 }
 
+.card-body {
+  padding: 0.05rem .5rem;
+  overflow-y: scroll;
+}
+
 .headerTitle, .headerDirector {
   padding: 1vh 1vw;
+}
+
+.headerTitle {
+  height: 100px;
+  padding-right: 30px;
 }
 
 .icon-buttons-container {
