@@ -7,10 +7,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DevToolsExtension, NgRedux, NgReduxModule} from '@angular-redux/store';
 
 import {AppComponent} from './app.component';
-import {JsonConverterModule} from './utils/json-converter/json-converter.module';
 import {GeneralMiddlewareService} from './store/middleware/feature/general.mid';
 import {ApiMiddlewareService} from './store/middleware/core/api.mid';
-import {JsonConversionFunctions} from './utils/jsonConversionFunctions';
 import {applyMiddleware, combineReducers, createStore, Store} from 'redux';
 import {StoreDataTypeEnum} from './store/storeDataTypeEnum';
 import {generalReducer} from './store/reducers/general.reducer';
@@ -39,7 +37,6 @@ import {RemoveNonEnglishPipe} from './shared/remove-non-english.pipe';
     NgbModule,
     HttpClientModule,
     NgReduxModule,
-    JsonConverterModule.forRoot(JsonConversionFunctions.getInstance()),
   ],
   providers: [ApiMiddlewareService, GeneralMiddlewareService, TitleValidationDirective],
   entryComponents: [MovieRecordEditorComponent, DeleteValidationComponent],

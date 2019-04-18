@@ -25,7 +25,7 @@ export class MovieService {
 
   checkTitleNotTaken(aTitle: string, aMovieId: string): Observable<boolean> {
     return this.http
-      .get(`http://www.omdbapi.com/?t=${aTitle}&apikey=ba6476f3`).pipe(
+      .get(`https://www.omdbapi.com/?t=${aTitle}&apikey=ba6476f3`).pipe(
         map((movie: { Title: string, imdbID: string }) =>
           !(movie.Title === aTitle && movie.imdbID !== aMovieId))
       );

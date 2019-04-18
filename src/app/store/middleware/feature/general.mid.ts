@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {API_ERROR, API_SUCCESS, apiRequest} from '../../actions/api.actions';
-import {JsonConverterService} from '../../../utils/json-converter/json-converter.service';
 import {addMovieIntoStore, MOVIES_LIST_FEATURE, MOVIES_LIST_GET_DATA} from '../../actions/action';
 import {Movie} from '../../../model/Movie';
 
@@ -11,14 +10,24 @@ const imdbMoviesIds = ['tt0111161', 'tt0167260', 'tt0110912', 'tt0108052', 'tt01
 const omdbApiKey = 'ba6476f3';
 const keyQuery = `&apikey=${omdbApiKey}`;
 
-const BASIC_URL = 'http://www.omdbapi.com/';
+const BASIC_URL = 'https://www.omdbapi.com/';
 const GET_MOVIE_DETAILS_URL = `${BASIC_URL}?i={keyQuery}`;
 
 @Injectable()
 export class GeneralMiddlewareService {
-  constructor(private jsonConverterService: JsonConverterService) {
+  constructor() {
   }
 
+  convertMovieFromJson = (aPayload: any): Movie => {
+    const newMovie = new Movie();
+    newMovie.id = aPayload.imdbID;
+    newMovie.title = aPayload.Title;
+    newMovie.year = aPayload.Year;
+    newMovie.runtime = aPayload.Runtime;
+    newMovie.genre = aPayload.Genre;
+    newMovie.director = aPayload.Director;
+    return newMovie;
+  };
 
   generalMiddleware = ({getState, dispatch}) => (next) => (action) => {
     next(action);
@@ -33,7 +42,7 @@ export class GeneralMiddlewareService {
         });
         break;
       case `${MOVIES_LIST_FEATURE} ${API_SUCCESS}`:
-        const movie = this.jsonConverterService.convertOneObject(action.payload, Movie);
+        const movie = this.convertMovieFromJson(action.payload);
         next(
           addMovieIntoStore(movie)
         );
