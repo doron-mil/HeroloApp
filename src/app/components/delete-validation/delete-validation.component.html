@@ -1,0 +1,19 @@
+<div class="modal-header bg-primary text-white">
+  <h4 class="modal-title" id="modal-title">Delete Movie Record</h4>
+  <button type="button" class="close text-white" aria-describedby="modal-title" (click)="cancel()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  Are You sure you want to delete this movie record ("{{movie.title}}")?
+
+</div>
+<div class="modal-footer">
+  <button type="button" ngbAutofocus class="btn btn-outline-secondary" (click)="cancel()">
+    Cancel
+  </button>
+  <button type="button"   class="btn btn-danger" (click)="delete()">
+    Delete
+  </button>
+</div>
+

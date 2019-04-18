@@ -1,15 +1,29 @@
 <div class="card movieCard">
-  <div class="card-header bg-primary text-white">
-    <h5 class="card-title">{{ movie.title | titlecase}}</h5>
+  <div class="card-header">
+    <div class="bg-primary text-white headerTitle">
+      <h5 class="card-title">{{ movie.title | removeNonEnglish | titlecase}}</h5>
+      <div class="icon-buttons-container">
+        <button class="btn icon-button" ngbTooltip="Edit" openDelay="800"
+                tooltipClass="button-tooltip" placement="left"
+                (click)="editMovieRecord()">
+          <i class="fa fa-xs fa-edit text-warning"></i>
+        </button>
+        <button class="btn icon-button" ngbTooltip="Delete" openDelay="800"
+                tooltipClass="button-tooltip" placement="left"
+                (click)="deleteMovieRecord()">
+          <i class="fa fa-xs fa-trash-alt text-warning"></i>
+        </button>
+      </div>
+    </div>
+    <div class="bg-secondary text-white headerDirector">
+      <h6 class="card-subtitle ">by {{ movie.director}} </h6>
+    </div>
   </div>
   <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">by {{ movie.director}} </h6>
     <p class="card-text">
       Released in : {{movie.year}} <BR/>
       Length: {{movie.runtime}} <BR/>
       Genre: {{movie.genre}} <BR/>
     </p>
-    <a href="#" class="card-link" (click)="open()">Edit</a>
-    <a href="#" class="card-link">Delete</a>
   </div>
 </div>

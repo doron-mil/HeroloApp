@@ -8,6 +8,7 @@ import {Movie} from '../../../model/Movie';
 //   'tt0120689', 'tt0114369', 'tt0102926', 'tt1675434', 'tt0482571', 'tt0253474', 'tt0172495', 'tt0120586', 'tt0110357', 'tt0095765',
 //   'tt0078788', 'tt0032553', 'tt1853728', 'tt0405094'];
 const imdbMoviesIds = ['tt0111161'];
+// const imdbMoviesIds = ['tt0111161', 'tt0167260', 'tt0110912'];
 
 const omdbApiKey = 'ba6476f3';
 const keyQuery = `&apikey=${omdbApiKey}`;
@@ -36,8 +37,15 @@ export class GeneralMiddlewareService {
       case `${MOVIES_LIST_FEATURE} ${API_SUCCESS}`:
         const movie = this.jsonConverterService.convertOneObject(action.payload, Movie);
         next(
-            addMovieIntoStore(movie)
-          );
+          addMovieIntoStore(movie)
+        );
+        const addedMovie = new Movie();
+        addedMovie.id = '3333';
+        addedMovie.title = '@@THIS is a MoviE!!';
+
+        next(
+          addMovieIntoStore(addedMovie)
+        );
         // Array.from(Array(30)).forEach(() => {
         //   next(
         //     addMovieIntoStore(movie)

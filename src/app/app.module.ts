@@ -19,6 +19,8 @@ import {MoviesListComponent} from './components/movies-list/movies-list.componen
 import {MovieCardComponent} from './components/movie-card/movie-card.component';
 import {MovieRecordEditorComponent} from './components/movie-record-editor/movie-record-editor.component';
 import {TitleValidationDirective} from './shared/title-validation.directive';
+import {DeleteValidationComponent} from './components/delete-validation/delete-validation.component';
+import { RemoveNonEnglishPipe } from './shared/remove-non-english.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {TitleValidationDirective} from './shared/title-validation.directive';
     MoviesListComponent,
     MovieCardComponent,
     MovieRecordEditorComponent,
-    TitleValidationDirective
+    TitleValidationDirective,
+    DeleteValidationComponent,
+    RemoveNonEnglishPipe
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,7 @@ import {TitleValidationDirective} from './shared/title-validation.directive';
     JsonConverterModule.forRoot(JsonConversionFunctions.getInstance()),
   ],
   providers: [ApiMiddlewareService, GeneralMiddlewareService, TitleValidationDirective],
-  entryComponents: [MovieRecordEditorComponent],
+  entryComponents: [MovieRecordEditorComponent, DeleteValidationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

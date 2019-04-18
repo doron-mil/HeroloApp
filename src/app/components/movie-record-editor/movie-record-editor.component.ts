@@ -47,7 +47,7 @@ export class MovieRecordEditorComponent implements OnInit {
   }
 
   submitData() {
-    console.log('3333333', this.movie);
+    Object.assign(this.movie, this.editMovieForm.value);
     if (this.isNew) {
       this.movieService.addNewMovie(this.movie);
     } else {

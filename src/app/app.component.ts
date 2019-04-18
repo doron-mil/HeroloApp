@@ -25,7 +25,7 @@ export class AppComponent {
 
   private generateNewMovie(): Movie {
     const newMovie = new Movie();
-    newMovie.id = AppComponent.idForUse++;
+    newMovie.id = '' + AppComponent.idForUse++;
     return newMovie;
   }
 }

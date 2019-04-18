@@ -1,5 +1,5 @@
 <div class="modal-header bg-primary text-white">
-  <h4 class="modal-title" id="modal-title">Edit movie record</h4>
+  <h4 class="modal-title" id="modal-title">{{ isNew ? 'Add' : 'Edit'}} Movie Record</h4>
   <button type="button" class="close text-white" aria-describedby="modal-title" (click)="closeModal()">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -29,11 +29,12 @@
 
     <div class="form-group">
       <label for="formRuntime">genre</label>
-      <input type="text" formControlName="genre" class="form-control" id="formRuntime" [ngModel]="movie.genre">
+      <input type="text" formControlName="genre" class="form-control" id="formRuntime">
     </div>
 
     <div class="valdationPlaceholder">
-      <div *ngIf="editMovieForm.invalid && (editMovieForm.dirty || editMovieForm.touched)"
+      <div *ngIf="(title.invalid && title.dirty) || (director.invalid && director.dirty) || (year.invalid && year.dirty) ||
+            (year.invalid && year.dirty) || (genre.invalid && genre.dirty)"
            class="alert alert-danger">
 
         <div *ngIf="(title.errors && title.errors.required ) || (director.errors && director.errors.required) ||
@@ -43,6 +44,9 @@
         </div>
         <div *ngIf="title.errors && title.errors.titleTaken ">
           Title already exists !!!
+        </div>
+       <div *ngIf="year.errors && !year.errors.required ">
+          Year must be between {{minYear}} and {{maxYear}} !!!
         </div>
 
       </div>
